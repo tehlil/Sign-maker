@@ -1,0 +1,82 @@
+.floating-left {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.floating-right {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  transform: translateY(20px);
+}
+
+.floating-right.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.float-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.float-btn:hover {
+  transform: scale(1.1);
+}
+
+.float-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.5;
+  transition: var(--transition);
+}
+
+.float-btn:hover::before {
+  opacity: 0.8;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.call {
+  background: var(--primary);
+}
+
+.scroll-top {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  color: var(--primary);
+}
+
+.scroll-top:hover {
+  background: var(--primary);
+  color: white;
+}

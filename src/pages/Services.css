@@ -1,0 +1,50 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.srv-card {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.srv-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(14, 152, 186, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.srv-icon {
+  color: var(--primary);
+}
+
+.srv-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.srv-card p {
+  font-size: 0.95rem;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.srv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.srv-link:hover {
+  gap: 0.75rem;
+}
