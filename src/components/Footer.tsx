@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, ArrowUp, Facebook, Instagram, Twitter, MessageCircle } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -42,9 +42,20 @@ const Footer = () => {
 
         <div className="footer-col">
           <h4>Follow Us</h4>
-          <a href="https://www.instagram.com/kamaldigi_studio/" target="_blank" rel="noopener noreferrer" className="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> Instagram
-          </a>
+          <div className="social-links-wrapper">
+            <a href="https://www.instagram.com/kamaldigi_studio/" target="_blank" rel="noopener noreferrer" className="social-icon-btn insta">
+              <Instagram size={20} />
+            </a>
+            <a href="#" className="social-icon-btn fb">
+              <Facebook size={20} />
+            </a>
+            <a href="#" className="social-icon-btn tw">
+              <Twitter size={20} />
+            </a>
+            <a href="https://wa.me/918560005555" target="_blank" rel="noopener noreferrer" className="social-icon-btn wa">
+              <MessageCircle size={20} />
+            </a>
+          </div>
           <button className="back-to-top mt-2 btn btn-glass" onClick={scrollToTop}>
             <ArrowUp size={18} /> Back To Top
           </button>
