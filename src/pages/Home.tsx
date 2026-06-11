@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone } from 'lucide-react';
+import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Counter from '../components/Counter';
 import './Home.css';
@@ -139,22 +139,26 @@ const Home = () => {
       {/* Metrics Section */}
       <section className="metrics section">
         <div className="container grid grid-4">
-          <div className="metric-card glass">
+          <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }} viewport={{ once: true }} className="metric-card vibrant-card-1">
+            <div className="metric-icon"><Briefcase size={32} /></div>
             <h3><Counter end={1000} suffix="+" /></h3>
             <p>Projects Completed</p>
-          </div>
-          <div className="metric-card glass">
+          </motion.div>
+          <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} viewport={{ once: true }} className="metric-card vibrant-card-2">
+            <div className="metric-icon"><Users size={32} /></div>
             <h3><Counter end={500} suffix="+" /></h3>
             <p>Happy Clients</p>
-          </div>
-          <div className="metric-card glass">
+          </motion.div>
+          <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }} viewport={{ once: true }} className="metric-card vibrant-card-3">
+            <div className="metric-icon"><Calendar size={32} /></div>
             <h3><Counter end={10} suffix="+" /></h3>
             <p>Years Experience</p>
-          </div>
-          <div className="metric-card glass">
+          </motion.div>
+          <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} viewport={{ once: true }} className="metric-card vibrant-card-4">
+            <div className="metric-icon"><Headphones size={32} /></div>
             <h3>24/7</h3>
             <p>Customer Support</p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
