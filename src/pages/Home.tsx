@@ -163,27 +163,49 @@ const Home = () => {
       </section>
 
       {/* About Us Preview */}
-      <section className="about-preview section">
+      <section className="about-preview section relative">
         <div className="container grid grid-2 items-center gap-4">
           <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
+            initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="about-image-wrapper"
           >
-            <div className="glass-card about-image-card">
+            <div className="about-decoration-blob"></div>
+            <div className="glass-card about-image-card floating-anim">
               <img src="https://images.unsplash.com/photo-1559136555-e4616dcb33f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sign Manufacturing Process" className="about-image" />
+              <div className="experience-badge">
+                <span className="years">10+</span>
+                <span className="text">Years of<br/>Excellence</span>
+              </div>
             </div>
           </motion.div>
+          
           <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
+            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
+            className="about-content-wrapper"
           >
-            <h2 className="section-title" style={{ textAlign: 'left' }}>Crafting Excellence Since a Decade</h2>
-            <p className="mb-2">At SIGN MAKER led board, we blend creativity with modern technology to deliver premium signage solutions. Whether you need a glowing 3D acrylic sign for your boutique or a massive LED display for your corporate office, we have the expertise to bring your vision to life.</p>
-            <ul className="check-list mb-3">
-              <li><CheckCircle className="check-icon" /> Premium Materials</li>
-              <li><CheckCircle className="check-icon" /> Experienced Team</li>
-              <li><CheckCircle className="check-icon" /> Fast Turnaround</li>
-            </ul>
-            <Link to="/about" className="btn btn-primary">Read More</Link>
+            <motion.div variants={fadeIn}>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
+                Crafting <span className="highlight">Excellence</span> Since a Decade
+              </h2>
+              <p className="mb-2 lead-text">
+                At <strong>SIGN MAKER led board</strong>, we blend creativity with modern technology to deliver premium signage solutions. 
+              </p>
+              <p className="mb-3 text-secondary">
+                Whether you need a glowing 3D acrylic sign for your boutique or a massive LED display for your corporate office, we have the expertise to bring your vision to life.
+              </p>
+            </motion.div>
+
+            <motion.ul className="check-list mb-3" variants={staggerContainer}>
+              {['Premium Materials', 'Experienced Team', 'Fast Turnaround'].map((item, i) => (
+                <motion.li key={i} variants={fadeIn} className="check-item">
+                  <CheckCircle className="check-icon" /> {item}
+                </motion.li>
+              ))}
+            </motion.ul>
+            
+            <motion.div variants={fadeIn}>
+              <Link to="/about" className="btn btn-primary btn-lg pulse-hover">Discover Our Story <ArrowRight size={18}/></Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
