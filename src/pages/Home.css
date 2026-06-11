@@ -1302,23 +1302,202 @@
   }
 }
 
-/* CTA Section */
-.cta-content {
-  padding: 5rem 3rem;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+/* Premium CTA Section Styles */
+.cta-premium-section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--background);
 }
 
-.cta-content h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
+.cta-showcase-panel {
+  position: relative;
+  background: linear-gradient(135deg, #0b0c10 0%, #171923 100%);
+  border-radius: 30px;
+  padding: 6rem 4rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
 
-.cta-buttons {
+.cta-grid-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 30px 30px;
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-glow-blob-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 152, 186, 0.15) 0%, transparent 70%);
+  filter: blur(30px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-glow-blob-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.12) 0%, transparent 70%);
+  filter: blur(30px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-panel-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(14, 152, 186, 0.15);
+  color: #00d2ff;
+  border: 1px solid rgba(14, 152, 186, 0.3);
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.cta-panel-content h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.cta-highlight {
+  position: relative;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 15px rgba(0, 210, 255, 0.8),
+    0 0 30px rgba(0, 210, 255, 0.6);
+  animation: flicker-text 3s infinite alternate;
+}
+
+@keyframes flicker-text {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px #fff,
+      0 0 15px rgba(0, 210, 255, 0.8),
+      0 0 30px rgba(0, 210, 255, 0.6);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    color: rgba(255,255,255,0.7);
+  }
+}
+
+.cta-desc {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: #a0aec0;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.cta-buttons-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.btn-cta {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-call {
+  background: linear-gradient(135deg, var(--primary), #00d2ff);
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.25);
+  border: none;
+}
+
+.btn-call:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 210, 255, 0.45);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: white;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25);
+  border: none;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.45);
+}
+
+.cta-trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2.5rem;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #a0aec0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.trust-badge svg {
+  color: #00d2ff;
+}
+
+/* Responsive adjust */
+@media (max-width: 768px) {
+  .cta-showcase-panel {
+    padding: 4rem 2rem;
+    border-radius: 20px;
+  }
+  .cta-trust-badges {
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {

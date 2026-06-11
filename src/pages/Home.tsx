@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones, Target, Eye, ShieldCheck, Lightbulb, Palette, Heart, ThumbsUp, Zap, Sliders, DollarSign, Clock } from 'lucide-react';
+import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones, Target, Eye, ShieldCheck, Lightbulb, Palette, Heart, ThumbsUp, Zap, Sliders, DollarSign, Clock, Sparkles } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Counter from '../components/Counter';
 import './Home.css';
@@ -562,19 +562,52 @@ const Home = () => {
       </section>
 
       {/* Large CTA Section */}
-      <section className="cta-section section">
-        <div className="container text-center">
+      <section className="cta-premium-section section">
+        <div className="container">
           <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-            className="cta-content glass-card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="cta-showcase-panel"
           >
-            <h2>Let's Build Your Brand Visibility</h2>
-            <p className="mb-3">Ready to transform your storefront or launch a new outdoor campaign? Contact our experts today for a free consultation and quote.</p>
-            <div className="cta-buttons">
-              <a href="tel:08560005555" className="btn btn-primary"><Phone size={20} /> Call Now</a>
-              <a href="https://wa.me/918560005555" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ backgroundColor: '#25D366', color: 'white', borderColor: '#25D366' }}>
-                <MessageCircle size={20} /> WhatsApp Us
-              </a>
+            <div className="cta-grid-mesh"></div>
+            <div className="cta-glow-blob-1"></div>
+            <div className="cta-glow-blob-2"></div>
+            
+            <div className="cta-panel-content text-center">
+              <span className="cta-badge">
+                <Sparkles size={16} /> Elevate Your Storefront
+              </span>
+              <h2>Ready to Make Your Brand <span className="cta-highlight">Glow</span>?</h2>
+              <p className="cta-desc">
+                Partner with Rajasthan's premier sign makers. We draft, build, and install custom high-visibility LED displays, neon signs, and premium acrylic lettering.
+              </p>
+              
+              <div className="cta-buttons-wrapper">
+                <a href="tel:08560005555" className="btn btn-cta btn-call">
+                  <Phone size={20} /> Call Now
+                </a>
+                <a href="https://wa.me/918560005555" target="_blank" rel="noopener noreferrer" className="btn btn-cta btn-whatsapp">
+                  <MessageCircle size={20} /> WhatsApp Us
+                </a>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="cta-trust-badges">
+                <div className="trust-badge">
+                  <ShieldCheck size={18} />
+                  <span>Premium Grade Materials</span>
+                </div>
+                <div className="trust-badge">
+                  <Clock size={18} />
+                  <span>On-Time Delivery & Install</span>
+                </div>
+                <div className="trust-badge">
+                  <Award size={18} />
+                  <span>10+ Years of Excellence</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
