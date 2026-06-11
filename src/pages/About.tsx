@@ -33,7 +33,7 @@ const About = () => {
             <p>Today, with over 1000+ completed projects and a team of dedicated professionals, we continue to push the boundaries of creative signage and outdoor advertising.</p>
           </motion.div>
           <motion.div className="glass-card p-2" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Office" style={{ width: '100%', borderRadius: 'var(--radius-sm)' }} />
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Office" style={{ width: '100%', borderRadius: 'var(--radius-sm)' }} loading="lazy" />
           </motion.div>
         </div>
       </section>

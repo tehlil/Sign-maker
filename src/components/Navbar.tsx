@@ -45,7 +45,7 @@ const Navbar = () => {
           <a href="tel:08560005555" className="btn btn-primary nav-cta">Call Now</a>
         </div>
 
-        <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle mobile menu">
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
       </div>

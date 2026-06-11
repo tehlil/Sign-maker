@@ -20,9 +20,9 @@ const staggerContainer = {
 };
 
 const heroImages = [
-  '/hero-img-1.png',
-  '/hero-img-2.png',
-  '/hero-img-3.png'
+  '/hero-img-1.webp',
+  '/hero-img-2.webp',
+  '/hero-img-3.webp'
 ];
 
 const Home = () => {
@@ -119,7 +119,7 @@ const Home = () => {
                   key={idx}
                   className={`carousel-slide ${idx === currentSlide ? 'active' : ''}`}
                 >
-                  <img src={img} alt={`Sign Board ${idx + 1}`} />
+                  <img src={img} alt={`Sign Board ${idx + 1}`} loading={idx === 0 ? "eager" : "lazy"} />
                 </div>
               ))}
               <div className="carousel-indicators">
@@ -172,7 +172,7 @@ const Home = () => {
           >
             <div className="about-decoration-blob"></div>
             <div className="glass-card about-image-card floating-anim">
-              <img src="/images/sign_maker_workshop.png" alt="Sign Manufacturing Process" className="about-image" />
+              <img src="/images/sign_maker_workshop.webp" alt="Sign Manufacturing Process" className="about-image" loading="lazy" />
               <div className="experience-badge">
                 <span className="years">10+</span>
                 <span className="text">Years of<br/>Excellence</span>
@@ -250,7 +250,7 @@ const Home = () => {
                 transition={{ delay: index * 0.1 }}
                 className={`home-srv-card ${service.colorClass}`}
               >
-                <img src={service.image} alt={service.title} className="home-srv-card-image" />
+                <img src={service.image} alt={service.title} className="home-srv-card-image" loading="lazy" />
                 <div className="home-srv-card-content">
                   <div className="home-srv-icon-wrapper">
                     {service.icon}
