@@ -505,25 +505,59 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq section">
-        <div className="container max-w-800" style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <div className="section-title">
+      <section className="faq-premium section relative">
+        <div className="faq-bg-blob"></div>
+        <div className="container grid grid-2 gap-4 items-start">
+          
+          {/* Left Column: Visual Intro */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="faq-intro"
+          >
+            <span className="badge">FAQ</span>
             <h2>Frequently Asked Questions</h2>
-            <p>Find answers to common questions about our signage and branding services.</p>
-          </div>
-          <div className="faq-list">
+            <p className="intro-desc">Find answers to common questions about our signage, LED display boards, acrylic 3D letters, and custom branding services across Rajasthan.</p>
+            
+            {/* Custom Interactive Signboard Card */}
+            <div className="faq-visual-card glass-card">
+              <div className="visual-card-glow"></div>
+              <h3>Need Custom Signage?</h3>
+              <p>Speak to our design specialists to draft a custom sign blueprint for your storefront today.</p>
+              <a href="tel:08560005555" className="btn btn-primary pulse-hover mt-3" style={{ display: 'inline-block' }}>Get Consultation</a>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Interactive Accordion */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="faq-list-premium"
+          >
             {faqs.map((faq, idx) => (
-              <div key={idx} className={`faq-item glass ${openFaq === idx ? 'open' : ''}`}>
-                <div className="faq-question" onClick={() => toggleFaq(idx)}>
+              <div 
+                key={idx} 
+                className={`faq-item-premium glass-card ${openFaq === idx ? 'open' : ''}`}
+                onClick={() => toggleFaq(idx)}
+              >
+                <div className="faq-question-premium">
+                  <span className="faq-number">{(idx + 1).toString().padStart(2, '0')}</span>
                   <h3>{faq.q}</h3>
-                  {openFaq === idx ? <ChevronUp /> : <ChevronDown />}
+                  <div className="faq-icon-wrapper">
+                    <ChevronDown size={20} className="faq-chevron" />
+                  </div>
                 </div>
-                <div className="faq-answer">
+                <div className="faq-answer-premium">
                   <p>{faq.a}</p>
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
+
         </div>
       </section>
 
