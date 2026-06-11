@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones, Target, Eye } from 'lucide-react';
+import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones, Target, Eye, ShieldCheck, Lightbulb, Palette, Heart, ThumbsUp, Zap, Sliders, DollarSign, Clock } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Counter from '../components/Counter';
 import './Home.css';
@@ -28,6 +28,7 @@ const heroImages = [
 const Home = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [hoveredMv, setHoveredMv] = useState<'mission' | 'vision' | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -68,7 +69,14 @@ const Home = () => {
     { name: 'Vikram Singh', company: 'Royal Palace Hotel', review: 'Professional team. They handled the entire outdoor advertising campaign flawlessly. Great ROI.' },
     { name: 'Anjali Verma', company: 'Verma Dental Clinic', review: 'The glow sign board is perfect. It gives a very modern and clean look to our clinic entrance.' },
     { name: 'Rahul Mehta', company: 'TechNova Solutions', review: 'Best sign makers in Udaipur. Their attention to detail and quality of materials used is unmatched.' },
-    { name: 'Sunita Jain', company: 'Jain Emporium', review: 'From design to installation, the process was smooth. The final ACP glazing work exceeded our expectations.' }
+    { name: 'Sunita Jain', company: 'Jain Emporium', review: 'From design to installation, the process was smooth. The final ACP glazing work exceeded our expectations.' },
+    { name: 'Amit Trivedi', company: 'Trivedi Electronics', review: 'The custom neon signs they designed for our showroom look absolutely stellar. The glow is uniform and grabs attention instantly!' },
+    { name: 'Sneha Reddy', company: 'Reddy Diagnostic Labs', review: 'Very professional group of engineers. They delivered the scrolling LED display screens on time and did the complete mounting safely.' },
+    { name: 'Manish Goel', company: 'Goel Jewellers', review: 'Our gold-plated brass letters look extremely regal on the storefront facade. The finishing is flawless. Excellent craftsmanship!' },
+    { name: 'Karan Johar', company: 'Karan Cafe & Resto', review: 'Fantastic work with neon lighting! Our cafe\'s interior photo zone has become a huge hit on Instagram thanks to their custom neon signs.' },
+    { name: 'Divya Nair', company: 'Nair Spa & Salon', review: 'We got our ACP glazing and acrylic 3D letters done. Very clean installation and prompt responses to all our queries.' },
+    { name: 'Sanjay Dutt', company: 'Dutt Auto Agency', review: 'The high-visibility outdoor hoarding they built for our dealership is rock-solid. Survived the heavy monsoon wind and rain without issues.' },
+    { name: 'Meera Joshi', company: 'Joshi Organic Stores', review: 'Friendly support team. They patiently refined the graphic design layouts multiple times until we got exactly what we wanted.' }
   ];
 
   return (
@@ -268,105 +276,231 @@ const Home = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="mission-vision section relative">
-        <div className="mv-background-blob"></div>
+      <section className="mission-vision-premium section relative">
         <div className="container">
           <div className="section-title">
-            <h2>Our Purpose & Direction</h2>
-            <p>Driving the future of branding through creativity and innovation.</p>
+            <span className="badge">Our Purpose</span>
+            <h2>How We Light the Way</h2>
+            <p>Blending creativity with cutting-edge engineering to illuminate brand identities.</p>
           </div>
-          <div className="grid grid-2 gap-4 mv-grid">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6 }} 
-              className="mv-creative-card mission-card"
-            >
-              <div className="mv-card-inner glass-card">
-                <div className="mv-icon-wrapper">
-                  <Target size={40} className="mv-icon" />
-                </div>
-                <h3>Our Mission</h3>
-                <p>To deliver innovative, high-quality signage and branding solutions that help businesses stand out and effectively communicate their unique identity to the world.</p>
-                <div className="mv-decoration"></div>
-              </div>
-            </motion.div>
+          
+          <div className="grid grid-2 gap-4 items-center mv-premium-wrapper">
             
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6, delay: 0.2 }} 
-              className="mv-creative-card vision-card"
-            >
-              <div className="mv-card-inner glass-card">
-                <div className="mv-icon-wrapper">
-                  <Eye size={40} className="mv-icon" />
+            {/* Left: Interactive Neon Board Showcase */}
+            <div className="neon-showcase-container">
+              <div className="neon-grid-mesh"></div>
+              <div className="neon-board-frame">
+                <div className="bolt top-left"></div>
+                <div className="bolt top-right"></div>
+                <div className="bolt bottom-left"></div>
+                <div className="bolt bottom-right"></div>
+                
+                {/* Mission Neon Sign */}
+                <div className={`neon-sign mission-sign ${hoveredMv === 'mission' ? 'glow-on' : 'glow-dim'}`}>
+                  <span className="neon-label">MISSION</span>
+                  <div className="neon-tubes">
+                    <span className="tube-text cyan-glow">CRAFT</span>
+                    <span className="tube-text cyan-glow">EXCELLENCE</span>
+                  </div>
                 </div>
-                <h3>Our Vision</h3>
-                <p>To become Rajasthan's most trusted and sought-after signage and branding partner, known for our commitment to quality, creativity, and customer satisfaction.</p>
-                <div className="mv-decoration"></div>
+
+                {/* Divider Wire */}
+                <div className="neon-wire"></div>
+
+                {/* Vision Neon Sign */}
+                <div className={`neon-sign vision-sign ${hoveredMv === 'vision' ? 'glow-on' : 'glow-dim'}`}>
+                  <span className="neon-label">VISION</span>
+                  <div className="neon-tubes">
+                    <span className="tube-text pink-glow">ILLUMINATE</span>
+                    <span className="tube-text pink-glow">THE FUTURE</span>
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Right: The Cards */}
+            <div className="mv-cards-column">
+              {/* Mission Card */}
+              <div 
+                className={`mv-glass-panel mission-panel ${hoveredMv === 'mission' ? 'active' : ''}`}
+                onMouseEnter={() => setHoveredMv('mission')}
+                onMouseLeave={() => setHoveredMv(null)}
+              >
+                <div className="mv-panel-header">
+                  <div className="mv-panel-icon cyan-bg">
+                    <Target size={24} />
+                  </div>
+                  <h3>Our Mission</h3>
+                </div>
+                <p>To deliver innovative, high-quality signage and branding solutions that help businesses stand out and effectively communicate their unique identity to the world.</p>
+                <div className="panel-glow-layer"></div>
+              </div>
+
+              {/* Vision Card */}
+              <div 
+                className={`mv-glass-panel vision-panel ${hoveredMv === 'vision' ? 'active' : ''}`}
+                onMouseEnter={() => setHoveredMv('vision')}
+                onMouseLeave={() => setHoveredMv(null)}
+              >
+                <div className="mv-panel-header">
+                  <div className="mv-panel-icon pink-bg">
+                    <Eye size={24} />
+                  </div>
+                  <h3>Our Vision</h3>
+                </div>
+                <p>To become Rajasthan's most trusted and sought-after signage and branding partner, known for our commitment to quality, creativity, and customer satisfaction.</p>
+                <div className="panel-glow-layer"></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* Core Values & Why Choose Us */}
-      <section className="values-why section">
-        <div className="container grid grid-2 gap-4">
-          <div className="values">
-            <h2 className="mb-2">Core Values</h2>
-            <div className="values-grid">
-              {['Quality', 'Innovation', 'Creativity', 'Integrity', 'Customer Satisfaction'].map((val, i) => (
-                <div key={i} className="value-item glass-card">
-                  <Star className="value-icon" /> {val}
-                </div>
+      <section className="values-why section relative">
+        <div className="vw-background-blob-1"></div>
+        <div className="vw-background-blob-2"></div>
+        <div className="container grid grid-2 gap-4 vw-grid">
+          {/* Core Values */}
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={staggerContainer}
+            className="values-container"
+          >
+            <motion.h2 variants={fadeIn} className="section-subtitle-vw">
+              Our <span className="highlight">Core Values</span>
+            </motion.h2>
+            <motion.p variants={fadeIn} className="vw-intro-text">
+              The principles that guide our work, define our culture, and drive our commitment to excellence.
+            </motion.p>
+            
+            <div className="values-creative-grid">
+              {[
+                { icon: <ShieldCheck size={28} />, title: 'Quality', desc: 'Crafting signage with high-grade, durable materials built to last.', color: '#0e98ba' },
+                { icon: <Lightbulb size={28} />, title: 'Innovation', desc: 'Embracing modern technology and lighting techniques for maximum impact.', color: '#8a2be2' },
+                { icon: <Palette size={28} />, title: 'Creativity', desc: 'Designing tailored visual identities that capture each brand’s essence.', color: '#ff007f' },
+                { icon: <Heart size={28} />, title: 'Integrity', desc: 'Building relationships based on transparency, honesty, and trust.', color: '#10b981' },
+                { icon: <ThumbsUp size={28} />, title: 'Customer First', desc: 'Ensuring absolute satisfaction through responsive, dedicated support.', color: '#f59e0b' }
+              ].map((val, i) => (
+                <motion.div 
+                  key={i} 
+                  variants={fadeIn} 
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="value-card glass-card"
+                  style={{
+                    '--card-color': val.color,
+                    '--card-glow': `${val.color}15`
+                  } as React.CSSProperties}
+                >
+                  <div className="value-card-icon-wrapper">
+                    {val.icon}
+                  </div>
+                  <div className="value-card-info">
+                    <h4>{val.title}</h4>
+                    <p>{val.desc}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-          <div className="why-us">
-            <h2 className="mb-2">Why Choose Us</h2>
-            <ul className="why-list">
-              <li><CheckCircle /> Experienced Team</li>
-              <li><CheckCircle /> Premium Materials</li>
-              <li><CheckCircle /> Custom Solutions</li>
-              <li><CheckCircle /> Fast Turnaround</li>
-              <li><CheckCircle /> Affordable Pricing</li>
-              <li><CheckCircle /> Modern Technology</li>
-            </ul>
-          </div>
+          </motion.div>
+
+          {/* Why Choose Us */}
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={staggerContainer}
+            className="why-us-container"
+          >
+            <motion.h2 variants={fadeIn} className="section-subtitle-vw">
+              Why <span className="highlight">Choose Us</span>
+            </motion.h2>
+            <motion.p variants={fadeIn} className="vw-intro-text">
+              We are dedicated to elevating your brand presence through top-tier craftsmanship and unmatched service.
+            </motion.p>
+
+            <div className="why-creative-list">
+              {[
+                { icon: <Users size={24} />, title: 'Experienced Team', desc: 'A dedicated team of design, production, and installation specialists with 10+ years of expertise.', color: '#3b82f6' },
+                { icon: <Award size={24} />, title: 'Premium Materials', desc: 'We never compromise on components, using high-grade acrylics, LEDs, and structural frameworks.', color: '#eab308' },
+                { icon: <Sliders size={24} />, title: 'Custom Solutions', desc: 'No cookie-cutter designs. Every project is fully personalized to fit your exact branding needs.', color: '#ec4899' },
+                { icon: <Zap size={24} />, title: 'Fast Turnaround', desc: 'Efficient production pipelines ensuring quick lead times without sacrificing structural quality.', color: '#f97316' },
+                { icon: <DollarSign size={24} />, title: 'Affordable Pricing', desc: 'Honest, competitive pricing offering the absolute best value and return on investment.', color: '#14b8a6' },
+                { icon: <Clock size={24} />, title: 'Reliable Support', desc: 'Comprehensive post-installation customer service to keep your signs illuminated 24/7.', color: '#8b5cf6' }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  variants={fadeIn} 
+                  whileHover={{ x: 8 }}
+                  className="why-item-card glass-card"
+                  style={{
+                    '--card-color': item.color,
+                    '--card-glow': `${item.color}15`
+                  } as React.CSSProperties}
+                >
+                  <div className="why-item-icon-wrapper">
+                    {item.icon}
+                  </div>
+                  <div className="why-item-info">
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="testimonials section">
+      <section className="testimonials section relative">
         <div className="container">
           <div className="section-title">
             <h2>What Our Clients Say</h2>
             <p>Don't just take our word for it. Here is what some of our 500+ happy clients have to say about our work.</p>
           </div>
-          <motion.div 
-            className="grid grid-3"
-            variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          >
-            {testimonials.map((test, idx) => (
-              <motion.div key={idx} variants={fadeIn} className="testimonial-card glass-card">
-                <div className="stars">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
-                </div>
-                <p className="review-text">"{test.review}"</p>
-                <div className="client-info">
-                  <div className="client-avatar">{test.name.charAt(0)}</div>
-                  <div>
-                    <h4>{test.name}</h4>
-                    <span>{test.company}</span>
+        </div>
+
+        <div className="testimonials-marquee-container">
+          {/* Row 1: Left Scrolling */}
+          <div className="marquee-track">
+            <div className="marquee-content scroll-left">
+              {testimonials.map((test, idx) => (
+                <div key={`row-${idx}`} className="testimonial-card glass-card marquee-card">
+                  <div className="stars">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
+                  </div>
+                  <p className="review-text">"{test.review}"</p>
+                  <div className="client-info">
+                    <div className="client-avatar">{test.name.charAt(0)}</div>
+                    <div>
+                      <h4>{test.name}</h4>
+                      <span>{test.company}</span>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+              {/* Duplicate Row for seamless scrolling */}
+              {testimonials.map((test, idx) => (
+                <div key={`row-dup-${idx}`} className="testimonial-card glass-card marquee-card" aria-hidden="true">
+                  <div className="stars">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
+                  </div>
+                  <p className="review-text">"{test.review}"</p>
+                  <div className="client-info">
+                    <div className="client-avatar">{test.name.charAt(0)}</div>
+                    <div>
+                      <h4>{test.name}</h4>
+                      <span>{test.company}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
