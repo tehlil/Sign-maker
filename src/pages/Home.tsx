@@ -219,9 +219,27 @@ const Home = () => {
           </div>
           <div className="grid grid-3">
             {[
-              { icon: <Monitor size={32} />, title: "LED Sign Boards", desc: "Energy-efficient and highly visible LED displays for modern businesses.", colorClass: "vibrant-srv-1" },
-              { icon: <PenTool size={32} />, title: "Acrylic 3D Letters", desc: "Premium 3D acrylic letters that give your brand a sophisticated look.", colorClass: "vibrant-srv-2" },
-              { icon: <LayoutTemplate size={32} />, title: "Neon Signs", desc: "Custom neon signs to add a vibrant, retro touch to your interior or exterior.", colorClass: "vibrant-srv-3" }
+              { 
+                icon: <Monitor size={32} />, 
+                title: "LED Sign Boards", 
+                desc: "Energy-efficient and highly visible LED displays for modern businesses.", 
+                colorClass: "vibrant-srv-1",
+                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              },
+              { 
+                icon: <PenTool size={32} />, 
+                title: "Acrylic 3D Letters", 
+                desc: "Premium 3D acrylic letters that give your brand a sophisticated look.", 
+                colorClass: "vibrant-srv-2",
+                image: "https://images.unsplash.com/photo-1510488214227-2b73719b48b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              },
+              { 
+                icon: <LayoutTemplate size={32} />, 
+                title: "Neon Signs", 
+                desc: "Custom neon signs to add a vibrant, retro touch to your interior or exterior.", 
+                colorClass: "vibrant-srv-3",
+                image: "https://images.unsplash.com/photo-1554260570-e9689a3418b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              }
             ].map((service, index) => (
               <motion.div 
                 key={index}
@@ -229,14 +247,17 @@ const Home = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`srv-card ${service.colorClass}`}
+                className={`home-srv-card ${service.colorClass}`}
               >
-                <div className="srv-icon-wrapper">
-                  {service.icon}
+                <img src={service.image} alt={service.title} className="home-srv-card-image" />
+                <div className="home-srv-card-content">
+                  <div className="home-srv-icon-wrapper">
+                    {service.icon}
+                  </div>
+                  <h3>{service.title}</h3>
+                  <p>{service.desc}</p>
+                  <Link to="/services" className="home-srv-link mt-auto">Learn More <ArrowRight size={16} /></Link>
                 </div>
-                <h3>{service.title}</h3>
-                <p>{service.desc}</p>
-                <Link to="/services" className="srv-link mt-auto">Learn More <ArrowRight size={16} /></Link>
               </motion.div>
             ))}
           </div>
