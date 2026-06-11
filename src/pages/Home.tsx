@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones, Target, Eye, ShieldCheck, Lightbulb, Palette, Heart, ThumbsUp, Zap, Sliders, DollarSign, Clock, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle, Monitor, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, Phone, Users, Calendar, Headphones, Target, Eye, ShieldCheck, Lightbulb, Palette, Heart, ThumbsUp, Zap, Sliders, DollarSign, Clock, Sparkles } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Counter from '../components/Counter';
 import './Home.css';
@@ -45,14 +45,7 @@ const Home = () => {
     }
   };
 
-  const services = [
-    { icon: <Monitor size={40} />, title: 'LED Sign Boards', desc: 'Premium, bright, and energy-efficient LED signage.' },
-    { icon: <ImageIcon size={40} />, title: 'Acrylic 3D Letters', desc: 'Elegant and durable 3D acrylic letters for modern branding.' },
-    { icon: <Award size={40} />, title: 'Glow Sign Boards', desc: 'High-visibility glow signs to make your business stand out 24/7.' },
-    { icon: <Briefcase size={40} />, title: 'Outdoor Advertising', desc: 'Strategic outdoor ad placements for maximum reach.' },
-    { icon: <PenTool size={40} />, title: 'Graphic Design', desc: 'Creative designs that communicate your brand values.' },
-    { icon: <LayoutTemplate size={40} />, title: 'Branding Solutions', desc: 'Comprehensive branding packages for businesses.' }
-  ];
+
 
   const faqs = [
     { q: 'What types of sign boards do you manufacture?', a: 'We manufacture a wide range of sign boards including LED display boards, acrylic 3D letters, glow sign boards, ACP glazing, brass letters, and custom flex boards.' },

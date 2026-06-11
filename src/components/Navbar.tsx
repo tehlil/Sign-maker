@@ -31,7 +31,7 @@ const Navbar = () => {
           SIGN MAKER <span className="highlight">led board</span>
         </Link>
 
-        <div className={`nav-links ${mobileMenuOpen ? 'active glass-card' : ''}`}>
+        <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
             <Link
               key={link.name}
