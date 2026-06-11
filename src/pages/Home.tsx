@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Counter from '../components/Counter';
 import './Home.css';
 import { Link } from 'react-router-dom';
@@ -19,8 +19,22 @@ const staggerContainer = {
   }
 };
 
+const heroImages = [
+  'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+  'https://images.unsplash.com/photo-1559136555-e4616dcb33f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+  'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'
+];
+
 const Home = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const toggleFaq = (index: number) => {
     if (openFaq === index) {
@@ -67,7 +81,13 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-background"></div>
+        {heroImages.map((img, idx) => (
+          <div 
+            key={idx}
+            className={`hero-slide ${idx === currentSlide ? 'active' : ''}`}
+            style={{ backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%), url(${img})` }}
+          ></div>
+        ))}
         <div className="container hero-content">
           <motion.h1 
             initial="hidden" animate="visible" variants={fadeIn}
