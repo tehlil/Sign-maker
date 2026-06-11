@@ -491,14 +491,137 @@
   margin-top: auto;
 }
 
-/* Mission Vision */
-.mv-card {
-  padding: 3rem 2.5rem;
+/* Mission & Vision Creative Section */
+.mission-vision {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 152, 186, 0.03) 100%);
 }
 
-.mv-card h2 {
+.mv-background-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(14, 152, 186, 0.08) 0%, rgba(255, 107, 107, 0.05) 50%, transparent 70%);
+  z-index: 0;
+  animation: pulse-blob 10s ease-in-out infinite alternate;
+}
+
+.mv-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.mv-creative-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.mv-creative-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card {
+  background: linear-gradient(135deg, var(--primary), #00d2ff);
+}
+
+.vision-card {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+}
+
+.mv-card-inner {
+  height: 100%;
+  padding: 3rem 2.5rem;
+  border-radius: calc(var(--radius-lg) - 2px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  border: none !important;
+}
+
+.mv-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.mission-card .mv-icon-wrapper {
+  background: rgba(14, 152, 186, 0.1);
   color: var(--primary);
+}
+
+.vision-card .mv-icon-wrapper {
+  background: rgba(255, 107, 107, 0.1);
+  color: #FF6B6B;
+}
+
+.mv-creative-card:hover .mv-icon-wrapper {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.mv-card-inner h3 {
+  font-size: 2rem;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-card h3 {
+  color: var(--primary);
+}
+
+.vision-card h3 {
+  color: #FF6B6B;
+}
+
+.mv-card-inner p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 2;
+}
+
+.mv-decoration {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 1;
+  transition: transform 0.6s ease;
+}
+
+.mission-card .mv-decoration {
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+}
+
+.vision-card .mv-decoration {
+  background: radial-gradient(circle, #FF6B6B 0%, transparent 70%);
+}
+
+.mv-creative-card:hover .mv-decoration {
+  transform: scale(1.5);
 }
 
 /* Values & Why Us */

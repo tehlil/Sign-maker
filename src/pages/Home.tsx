@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones } from 'lucide-react';
+import { ArrowRight, CheckCircle, Monitor, Image as ImageIcon, Briefcase, Award, PenTool, LayoutTemplate, MessageCircle, Star, ChevronDown, ChevronUp, Phone, Users, Calendar, Headphones, Target, Eye } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Counter from '../components/Counter';
 import './Home.css';
@@ -268,16 +268,48 @@ const Home = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="mission-vision section">
-        <div className="container grid grid-2 gap-4">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="mv-card glass">
-            <h2>Our Mission</h2>
-            <p>Deliver innovative, high-quality signage and branding solutions that help businesses stand out and effectively communicate their unique identity to the world.</p>
-          </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ delay: 0.2 }} className="mv-card glass">
-            <h2>Our Vision</h2>
-            <p>Become Rajasthan's most trusted and sought-after signage and branding partner, known for our commitment to quality, creativity, and customer satisfaction.</p>
-          </motion.div>
+      <section className="mission-vision section relative">
+        <div className="mv-background-blob"></div>
+        <div className="container">
+          <div className="section-title">
+            <h2>Our Purpose & Direction</h2>
+            <p>Driving the future of branding through creativity and innovation.</p>
+          </div>
+          <div className="grid grid-2 gap-4 mv-grid">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6 }} 
+              className="mv-creative-card mission-card"
+            >
+              <div className="mv-card-inner glass-card">
+                <div className="mv-icon-wrapper">
+                  <Target size={40} className="mv-icon" />
+                </div>
+                <h3>Our Mission</h3>
+                <p>To deliver innovative, high-quality signage and branding solutions that help businesses stand out and effectively communicate their unique identity to the world.</p>
+                <div className="mv-decoration"></div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6, delay: 0.2 }} 
+              className="mv-creative-card vision-card"
+            >
+              <div className="mv-card-inner glass-card">
+                <div className="mv-icon-wrapper">
+                  <Eye size={40} className="mv-icon" />
+                </div>
+                <h3>Our Vision</h3>
+                <p>To become Rajasthan's most trusted and sought-after signage and branding partner, known for our commitment to quality, creativity, and customer satisfaction.</p>
+                <div className="mv-decoration"></div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
