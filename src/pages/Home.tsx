@@ -81,32 +81,57 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="hero">
-        {heroImages.map((img, idx) => (
-          <div 
-            key={idx}
-            className={`hero-slide ${idx === currentSlide ? 'active' : ''}`}
-            style={{ backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%), url(${img})` }}
-          ></div>
-        ))}
-        <div className="container hero-content">
-          <motion.h1 
+        <div className="hero-background-base"></div>
+        <div className="container grid grid-2 items-center gap-4 hero-content-wrapper">
+          <motion.div 
+            className="hero-text-content"
             initial="hidden" animate="visible" variants={fadeIn}
           >
-            Illuminate Your Brand's <span className="highlight">Presence</span>
-          </motion.h1>
-          <motion.p 
-            initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.2 }}
-            className="hero-subtitle"
-          >
-            Rajasthan's most trusted signage and branding partner. We deliver innovative, high-quality display solutions that make your business stand out.
-          </motion.p>
+            <motion.h1 
+              initial="hidden" animate="visible" variants={fadeIn}
+            >
+              Illuminate Your Brand's <span className="highlight">Presence</span>
+            </motion.h1>
+            <motion.p 
+              initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.2 }}
+              className="hero-subtitle"
+            >
+              Rajasthan's most trusted signage and branding partner. We deliver innovative, high-quality display solutions that make your business stand out.
+            </motion.p>
+            <motion.div 
+              className="hero-buttons"
+              initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.4 }}
+            >
+              <a href="tel:08560005555" className="btn btn-primary">Call Now</a>
+              <Link to="/contact" className="btn btn-glass">Get Quote</Link>
+              <Link to="/services" className="btn btn-secondary">View Services <ArrowRight size={18}/></Link>
+            </motion.div>
+          </motion.div>
+
           <motion.div 
-            className="hero-buttons"
-            initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.4 }}
+            className="hero-carousel-wrapper"
+            initial="hidden" animate="visible" variants={fadeIn} transition={{ delay: 0.3 }}
           >
-            <a href="tel:08560005555" className="btn btn-primary">Call Now</a>
-            <Link to="/contact" className="btn btn-glass">Get Quote</Link>
-            <Link to="/services" className="btn btn-secondary">View Services <ArrowRight size={18}/></Link>
+            <div className="carousel-container glass-card">
+              {heroImages.map((img, idx) => (
+                <div 
+                  key={idx}
+                  className={`carousel-slide ${idx === currentSlide ? 'active' : ''}`}
+                >
+                  <img src={img} alt={`Sign Board ${idx + 1}`} />
+                </div>
+              ))}
+              <div className="carousel-indicators">
+                {heroImages.map((_, idx) => (
+                  <button 
+                    key={idx} 
+                    className={`indicator ${idx === currentSlide ? 'active' : ''}`}
+                    onClick={() => setCurrentSlide(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
