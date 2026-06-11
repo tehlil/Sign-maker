@@ -210,27 +210,37 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Services Preview */}
       <section className="services-preview section">
         <div className="container">
           <div className="section-title">
             <h2>Our Core Services</h2>
-            <p>Discover our comprehensive range of signage and branding solutions designed to elevate your business identity.</p>
+            <p>From design to installation, we provide end-to-end signage solutions tailored to your brand's unique identity.</p>
           </div>
-          <motion.div 
-            className="grid grid-3"
-            variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          >
-            {services.map((srv, idx) => (
-              <motion.div key={idx} variants={fadeIn} className="service-card glass-card">
-                <div className="service-icon">{srv.icon}</div>
-                <h3>{srv.title}</h3>
-                <p>{srv.desc}</p>
-                <Link to="/services" className="service-link">Learn More <ArrowRight size={16} /></Link>
+          <div className="grid grid-3">
+            {[
+              { icon: <Monitor size={32} />, title: "LED Sign Boards", desc: "Energy-efficient and highly visible LED displays for modern businesses.", colorClass: "vibrant-srv-1" },
+              { icon: <PenTool size={32} />, title: "Acrylic 3D Letters", desc: "Premium 3D acrylic letters that give your brand a sophisticated look.", colorClass: "vibrant-srv-2" },
+              { icon: <LayoutTemplate size={32} />, title: "Neon Signs", desc: "Custom neon signs to add a vibrant, retro touch to your interior or exterior.", colorClass: "vibrant-srv-3" }
+            ].map((service, index) => (
+              <motion.div 
+                key={index}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`srv-card ${service.colorClass}`}
+              >
+                <div className="srv-icon-wrapper">
+                  {service.icon}
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+                <Link to="/services" className="srv-link mt-auto">Learn More <ArrowRight size={16} /></Link>
               </motion.div>
             ))}
-          </motion.div>
-          <div className="text-center mt-4" style={{ marginTop: '3rem' }}>
+          </div>
+          <div className="text-center mt-4">
             <Link to="/services" className="btn btn-secondary">View All Services</Link>
           </div>
         </div>
