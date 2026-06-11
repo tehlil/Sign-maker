@@ -5,14 +5,14 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .floating-right {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 999;
+  z-index: 9999;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
@@ -37,6 +37,7 @@
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  flex-shrink: 0; /* Prevents button from collapsing/shrinking in flex layout */
 }
 
 .float-btn:hover {
@@ -79,4 +80,24 @@
 .scroll-top:hover {
   background: var(--primary);
   color: white;
+}
+
+@media (max-width: 768px) {
+  .floating-left {
+    left: 15px;
+    bottom: 15px;
+    gap: 10px;
+  }
+  .floating-right {
+    right: 15px;
+    bottom: 15px;
+  }
+  .float-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .float-btn svg, .float-btn img {
+    width: 20px !important;
+    height: 20px !important;
+  }
 }
