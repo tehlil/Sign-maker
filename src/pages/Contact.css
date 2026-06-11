@@ -76,3 +76,13 @@
 .w-100 {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+  .contact-item {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

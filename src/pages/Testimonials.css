@@ -28,3 +28,12 @@
 .mt-auto {
   margin-top: auto;
 }
+
+@media (max-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .review-card {
+    padding: 1.5rem;
+  }
+}
