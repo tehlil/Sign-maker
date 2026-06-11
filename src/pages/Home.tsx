@@ -171,7 +171,7 @@ const Home = () => {
           >
             <div className="about-decoration-blob"></div>
             <div className="glass-card about-image-card floating-anim">
-              <img src="https://images.unsplash.com/photo-1559136555-e4616dcb33f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sign Manufacturing Process" className="about-image" />
+              <img src="/images/sign_maker_workshop.png" alt="Sign Manufacturing Process" className="about-image" />
               <div className="experience-badge">
                 <span className="years">10+</span>
                 <span className="text">Years of<br/>Excellence</span>
